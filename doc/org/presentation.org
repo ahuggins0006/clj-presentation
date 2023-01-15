@@ -1,0 +1,128 @@
+#+TITLE: Clojure Presentation
+#+AUTHOR: Andrew H
+#+DATE: [2023-01-20]
+
+* About Me
+  + Huntsville - 2010
+  + 10 years - developer
+  + 07 years - functional
+  + 03 years - Clojurian
+  + Haskell -> Clojure -> Erlang/Elixir -> Haskell -> Clojure
+* Clojure
+  #+BEGIN_QUOTE
+Clojure is a robust, practical, and fast programming language and ecosystem with a set of useful features that together form a simple, coherent, and powerful tool.
+
+Robust, practical, fast, simple, coherent powerful tool
+  #+END_QUOTE
+** JVM
+   + Industry Standard
+   + Direct Interop
+   + Clojure libraries + Java libraries
+   + Small core, extension via libraries
+
+** Lisp
+   + () - list
+   + (fn args) - list
+
+** It's just data
+   + data structures are code
+   + code is data structures
+   + literal
+#+begin_src clojure :results silent
+  '(1 2 3 4) ;; list
+  [1 2 3 4]  ;; vector
+  #(1 2 3 4) ;; set
+  {:one 1 :two 2 :three 3 :four 4} ;; hash map
+#+end_src
+
+#+begin_src json
+"{"one":"1", "two":"2", "three":"3", "four":"4"}"
+#+end_src
+
+#+begin_src haskell
+  al = Data.Map.Strict.fromList [("one", 1), ("two", 2), ("three", 3), ("four", 4)]
+#+end_src
+
+#+begin_src cpp
+  const std::map<std::string, int> init {{"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}};
+
+  class NumbersOneToFour { public: int one; int two; int three; int four; };
+  NumbersOneToFour al; al.one = 1; al.two = 2; al.three = 3; al.four = 4;
+  // print map?
+  // log map?
+
+#+end_src
+
+** Functional
+
+#+begin_src clojure :results silent
+  (* 1 4 5 6)
+#+end_src
+
+#+begin_src clojure :results pp
+  {:one 1 :two 2 :three 3 :four 4}
+#+end_src
+
+#+RESULTS:
+: {:one 1, :two 2, :three 3, :four 4}
+:
+
+#+begin_src clojure :results pp
+  (def small-map {:a 2 :b 4 :c 8})
+  (:b small-map)
+#+end_src
+
+#+RESULTS:
+: 4
+:
+* Literate Programming
+
+* REPL driven development
+
+| Editor    | REPL      |
+|-----------+-----------|
+| VSCode    | Calva     |
+| Emacs     | Cider     |
+| Neovim    | Fireplace |
+| JetBrains | Cursive   |
+
+* Testing
+  + Rich comments
+  + Hyperfiddle/rcf
+
+* Logging
+  + Java interop
+  + Timbre (Clojure only)
+
+* Package Management
+  + Leinengen
+  + Clojure CLI
+
+* Deployment
+  + lein uberjar
+  + CLI scripts
+
+* Hosts
+
+** Official
+
+*** JVM
+    + https://clojure.org
+
+*** Javascript
+    + https://clojurescript.org/
+
+*** CLR
+    + https://github.com/clojure/clojure-clr
+
+** Unofficial
+
+*** BEAM
+    + https://github.com/clojerl/clojerl
+
+*** Python
+    + https://github.com/clj-python/libpython-clj
+
+* Rich Hickey's Greatest Hits
+  + https://changelog.com/posts/rich-hickeys-greatest-hits
+  + https://www.youtube.com/playlist?list=PLXsqD83He-e5oUh_DFrHbO3MoNj3tG8Vh
