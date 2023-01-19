@@ -1,0 +1,246 @@
+% Created 2023-01-18 Wed 21:32
+% Intended LaTeX compiler: pdflatex
+\documentclass[bigger]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usetheme{default}
+\author{Andrew H}
+\date{2023-01-20 Fri}
+\title{Clojure Presentation}
+\hypersetup{
+ pdfauthor={Andrew H},
+ pdftitle={Clojure Presentation},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.0.50 (Org mode 9.6.1)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+
+\section{About Me}
+\label{sec:org0d5cedf}
+\begin{frame}[label={sec:orgfec7406}]{About Me}
+\begin{block}{Experience}
+\begin{itemize}
+\item Huntsville - 2010
+\item UA Huntsville - Computer Science
+\item 10 years - Developer
+\item 07 years - Functional
+\item 03 years - Clojurian
+\end{itemize}
+\end{block}
+
+\begin{block}{Functional Journey}
+\begin{itemize}
+\item Haskell -> Clojure -> Erlang/Elixir -> Haskell -> Clojure
+\end{itemize}
+\end{block}
+\end{frame}
+\section{Clojure}
+\label{sec:orgf1bad2c}
+\begin{frame}[label={sec:org685648d}]{Clojure}
+\begin{block}{Rationale}
+\begin{quote}
+Clojure is a robust, practical, and fast programming language and ecosystem with
+a set of useful features that together form a simple, coherent, and powerful tool. -- Rich Hickey
+\end{quote}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org952dc11}]{History}
+\begin{itemize}
+\item Released 2007
+\item BDFL - Rich Hickey
+\item Wanted mainstream acceptability with much simpler programming model
+\item Hosted
+\item Functional Lisp
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgae54612}]{JVM}
+\begin{itemize}
+\item Industry Standard
+\item Direct Interop
+\item Clojure libraries + Java libraries
+\item Small core, extension via libraries
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org72e6791}]{Lisp}
+\begin{itemize}
+\item Common Lisp
+\item Emacs Lisp
+\item Scheme / Racket
+\end{itemize}
+\begin{itemize}
+\item S-expressions
+\item () - list
+\item (fn args) - list
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org2b098e4}]{It's just data}
+\begin{itemize}
+\item data structures are code
+\item code is data structures
+\item literal
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:org026dd98},fragile]{Data Samples}
+ \begin{verbatim}
+'(1 2 3 4) ;; list
+[1 2 3 4]  ;; vector
+#(1 2 3 4) ;; set
+{:one 1 :two 2 :three 3 :four 4} ;; hash map
+\end{verbatim}
+
+\begin{verbatim}
+"{"one":"1", "two":"2", "three":"3", "four":"4"}"
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orgc97496c},fragile]{Functional}
+ \begin{verbatim}
+(* 1 4 5 6)
+(fn [x y] (+ x y))
+(def add-two (fn [x] (+ x 2))
+(defn add-two  [x] (+ x 2))
+\end{verbatim}
+
+\begin{verbatim}
+{:one 1 :two 2 :three 3 :four 4}
+\end{verbatim}
+
+\begin{verbatim}
+(def small-map {:a 2 :b 4 :c 8})
+(:b small-map)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[label={sec:orgb41545b}]{Literate Programming}
+\end{frame}
+
+\begin{frame}[label={sec:orgf4c68c2}]{REPL driven development}
+\begin{center}
+\begin{tabular}{ll}
+Editor & REPL\\[0pt]
+\hline
+VSCode & Calva\\[0pt]
+Emacs & Cider\\[0pt]
+Neovim & Fireplace\\[0pt]
+JetBrains & Cursive\\[0pt]
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[label={sec:orgecf684c}]{Clojure at Torch Technologies}
+\begin{block}{Video Hub Engine / Scene Builder}
+\end{block}
+\begin{block}{UE4 remote control client}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org27934ae}]{Testing}
+\begin{itemize}
+\item Rich comments
+\item Hyperfiddle/rcf
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org4056f2b}]{Logging}
+\begin{itemize}
+\item Java interop
+\item Timbre (Clojure only)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org375059b}]{Package Management}
+\begin{block}{Leinengen}
+\begin{itemize}
+\item batteries included
+\end{itemize}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=25px]{../../resources/leiningen.jpg}
+\caption{\label{leiningen}From leiningen.org}
+\end{figure}
+\end{block}
+
+\begin{block}{Clojure CLI}
+\begin{itemize}
+\item official
+\end{itemize}
+\end{block}
+\begin{block}{Clojars}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org2db6457}]{Deployment}
+\begin{itemize}
+\item lein uberjar
+\item CLI scripts
+\end{itemize}
+\end{frame}
+
+\section{Hosts}
+\label{sec:org8564d7c}
+
+\begin{frame}[label={sec:org08dc3a8}]{Official}
+\begin{block}{JVM}
+\begin{itemize}
+\item \url{https://clojure.org}
+\end{itemize}
+\end{block}
+
+\begin{block}{Javascript}
+\begin{itemize}
+\item \url{https://clojurescript.org/}
+\end{itemize}
+\end{block}
+
+\begin{block}{CLR}
+\begin{itemize}
+\item \url{https://github.com/clojure/clojure-clr}
+\item ClojureCLR.Next
+\item \url{https://dmiller.github.io/clojure-clr-next/general/2023/01/06/clojureclr-reconsidered.html}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org2ec837b}]{Unofficial}
+\begin{block}{BEAM}
+\begin{itemize}
+\item \url{https://github.com/clojerl/clojerl}
+\end{itemize}
+\end{block}
+
+\begin{block}{Python}
+\begin{itemize}
+\item \url{https://github.com/clj-python/libpython-clj}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Rich Hickey's Greatest Hits}
+\label{sec:orgf312ec8}
+\begin{frame}[label={sec:org363b6df}]{Greatest Hits}
+\begin{itemize}
+\item \url{https://changelog.com/posts/rich-hickeys-greatest-hits}
+\item \url{https://www.youtube.com/playlist?list=PLXsqD83He-e5oUh\_DFrHbO3MoNj3tG8Vh}
+\end{itemize}
+\end{frame}
+\end{document}
